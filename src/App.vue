@@ -86,17 +86,17 @@ export default {
       console.log("テキストボックス"+this.number+"を表示")
       //console.log(this.msg)
     },
-    savememo:function(number){
+    savememo:function(msg){
       //console.log(number)
       //console.log(this.msg)
       /*if(this.todos[number]===undefined){
         alert("タスクを追加してください")
         return
       }*/
-      this.todos[number].msg=this.msg
+      this.todos[this.number].msg=msg
       //console.log(this.msg)
       //console.log(this.number)
-      console.log(number+"番目の箱のmsgプロパティは"+this.todos[number].msg)
+      console.log(this.number+"番目の箱のmsgプロパティは"+this.todos[this.number].msg)
       //this.msg=""
     }
   }}
