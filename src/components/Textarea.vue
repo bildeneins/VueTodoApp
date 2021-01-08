@@ -1,46 +1,34 @@
 <template>
-<div class="textare">
-  <h3 class="todoshow">{{todo}}のメモを表示中</h3>
-    <textarea 
-    :name="name"
-    :value="value"
-    :placeholder="placeholder"
-    :rows="rows"
-    :cols="cols"
-    @change="savememo">
-    </textarea>
-    <!--<button v-on:click="savememo">保存</button>-->
-</div>
+  <div class="textare">
+    <h3 class="todoshow">{{todo}}のメモを表示中</h3>
+      <textarea 
+          name="todo-description"
+          placeholder="メモ"
+          :value="value"
+          :rows="rows"
+          :cols="cols"
+          @change="saveMemo">
+      </textarea>
+  </div>
 </template>
+
 <script>
 export default {
-    name: "MyTextarea",
-    /*data:function(){
-      return{num:0}
-    },*/
+  name: "MyTextarea",
   props: {
     value: { type: String, required: true },
-    name: { type: String, required: true },
-    todo:{type:String,required:true},
-    placeholder: { type: String, required: false },
-    rows: { type: Number, required: false },
-    cols: { type: Number, required: false },
-    number: { type:Number,required: false}
+    todo: { type: String, required: true },
+    rows: { type: Number, required: true },
+    cols: { type: Number, required: true }
   },
   methods: {
-    //updateValue: function(e) {
-      //this.$emit("input", e.target.value);
-    //},
-    savememo:function(e){
-      //ここ編集this.$emit("savememo", e.target.value)
-      this.$emit("savememo",e.target.value)
-      //console.log(this.number)
-      //this.$emit('savememo',this.number)
-      //console.log(this.number)
+    saveMemo:function(e){
+      this.$emit("save-memo",e.target.value)
     }
   }
 }
 </script>
+
 <style>
 .todoshow{color:black}
 </style>
