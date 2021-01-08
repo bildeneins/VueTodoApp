@@ -32,7 +32,8 @@ export default {
       //this.$emit("input", e.target.value);
     //},
     savememo:function(e){
-      this.$emit("input", e.target.value)
+      //ここ編集this.$emit("savememo", e.target.value)
+      this.$emit("savememo",e.target.value)
       //console.log(this.number)
       //this.$emit('savememo',this.number)
       //console.log(this.number)
@@ -41,5 +42,5 @@ export default {
 }
 </script>
 <style>
-.todoshow{color:white}
+.todoshow{color:black}
 </style>
