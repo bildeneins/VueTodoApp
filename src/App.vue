@@ -9,7 +9,7 @@
           </form>
           <div class="button" v-for="(todo,index) in todos" :key="index">
             <button v-on:click="changeSelectingTodo(index)">{{todo.item}}</button>
-            <button class="button1" v-on:click.shift="deleteToDoItem(index)">削除</button>
+            <button class="button1" v-on:click.shift="deleteTodoItem(index)">削除</button>
           </div>
         </div>
         <div class="col-md-6">
