@@ -7,7 +7,7 @@
           :value="value"
           :rows="rows"
           :cols="cols"
-          @change="saveMemo">
+          @input="saveMemo">
       </textarea>
   </div>
 </template>

@@ -28,7 +28,11 @@
 
 <script>
 import MyTextarea from './components/Textarea.vue'
+import ElectronStore from 'electron-store';
 
+const store = new ElectronStore();
+const todolist = store.get('todolist', []);
+console.log(todolist)
 
 export default {
   name: 'App',
@@ -39,9 +43,9 @@ export default {
     return { 
       msg:'',
       newItem:'',
-      todos:[],
+      todos:store.get('todolist', []),
       selectingTodoIndex:0,
-      todo_show:""
+      todo_show:"",
     }
   },
   methods:{
@@ -55,10 +59,12 @@ export default {
       };
       console.log("タスクの追加")
       this.todos.push(todo);
+      store.set('todolist',this.todos);
       this.newItem='';
     },
     deleteTodoItem:function(index){
       this.todos.splice(index,1)
+      store.set('todolist',this.todos);
     },
     changeSelectingTodo:function(index){
       this.todo_show=this.todos[index].item
@@ -69,8 +75,11 @@ export default {
     },
     saveMemo:function(msg){
       this.todos[this.selectingTodoIndex].msg=msg
-      console.log(this.selectingTodoIndex+"番目の箱のmsgプロパティは"+this.todos[this.selectingTodoIndex].msg)
+      store.set('todolist',this.todos);
     }
+  },
+  computed:{
+
   }
 }
 </script>
