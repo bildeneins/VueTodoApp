@@ -42,13 +42,16 @@ export default {
       todos:[],
       selectingTodoIndex:0,
       todo_show:"新規追加",
-      todo_show2:null,
+      todo_show2:-1,
       active:false,
       activeItem: null,
       }
     },
   methods:{
     deleteTodoItem:function(){
+      if(this.todo_show2===-1){
+        return;
+      }
       this.todos.splice(this.todo_show2,1)
       this.todo_show='';
       this.msg='';
@@ -69,7 +72,6 @@ export default {
         }
     },
     saveMemo:function(msg){
-      console.log('here')
       if(this.todo_show==='新規追加'){
         if(msg==''){
           return;
